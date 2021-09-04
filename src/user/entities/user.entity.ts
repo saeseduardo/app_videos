@@ -13,7 +13,7 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 255, default: '', nullable: true })
+  @Column({ type: 'varchar', length: 255, default: '' })
   name: string;
 
   @Column({
@@ -21,18 +21,22 @@ export class User {
     type: 'varchar',
     length: 255,
     default: '',
-    nullable: true,
   })
   lastName: string;
 
-  @Column({ type: 'varchar', length: 255, nullable: false })
+  @Column({
+    name: 'user_name',
+    type: 'varchar',
+    length: 255,
+    default: '',
+  })
+  userName: string;
+
+  @Column({ type: 'varchar', length: 255 })
   email: string;
 
   @Column({ type: 'varchar', length: 128, nullable: false, select: false })
   password: string;
-
-  @Column({ type: 'varchar', nullable: false })
-  role: string;
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
