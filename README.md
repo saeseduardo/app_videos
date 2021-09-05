@@ -26,7 +26,7 @@ $ npm install
 $ docker-compose up -d
 ```
 
-## Running the app
+## Ejecutando la aplicación
 
 ```bash
 # development
@@ -38,6 +38,9 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+#
+## Documentacion
+Para acceder a la documentacion luego de ejecutar la aplicacion dirigirce a la ruta '/api'
 #
 ## Autor
 

@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "1b52a923-0562-4c95-b152-53605cab6483",
+		"name": "app_video",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:4000/user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/user",
+				"description": "Listado de usuarios registrados en la api"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTYzMDgxNjAyOSwiZXhwIjoxNjMwODE5NjI5fQ.5gNyMPgzrXeCyHVI2914NqdEohUokyJ_-yhgmBX3I2w"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Eduardo\",\n    \"lastName\": \"Saes\",\n    \"userName\": \"eduardosaes\",\n    \"email\": \"eduardoargenis383@gmail.com\",\n    \"password\": \"aslftero\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/user",
+				"description": "Creacion de usuarios ppara consumir la api"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/auth/login",
+				"description": "Registro y obtension de token para uso de la api"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/video",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTYzMDg1Nzc3MywiZXhwIjoxNjMwODYxMzczfQ.SeGE9gnb7Q5yolFu1QH9V0rz54YADvwGi4k9mtYIWSA"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/video",
+				"description": "Listado de las pelicualas extraidas de api externa "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/video/tt10872600",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTYzMDg1Nzc3MywiZXhwIjoxNjMwODYxMzczfQ.SeGE9gnb7Q5yolFu1QH9V0rz54YADvwGi4k9mtYIWSA"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/video/tt10872600",
+				"description": "Obtiene una pelicula en concreto"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/comment/tt10872600",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTYzMDgxNjAyOSwiZXhwIjoxNjMwODE5NjI5fQ.5gNyMPgzrXeCyHVI2914NqdEohUokyJ_-yhgmBX3I2w"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/comment/tt10872600",
+				"description": "Lista los comentarios agregados a una pelicula"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/comment/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTYzMDgxNjAyOSwiZXhwIjoxNjMwODE5NjI5fQ.5gNyMPgzrXeCyHVI2914NqdEohUokyJ_-yhgmBX3I2w"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"videoId\": \"tt10872600\",\n    \"userId\": 2,\n    \"comment\": \";akjasldjadjia  djoajdiajdoaj ajdoiajsdoa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/comment/",
+				"description": "Cera un coimentario a una pelicula en particular"
+			},
+			"response": []
+		}
+	]
+}
