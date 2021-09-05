@@ -18,9 +18,11 @@ async function bootstrap() {
   setDefaultUser(configUser);
 
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
-    .setVersion('1.0')
+    .setTitle('Video API')
+    .addBearerAuth()
+    .setDescription(
+      'Esta es una API Creada con NestJS la cual brinda informacion acerca de videos y permite realizar comentarios`.',
+    )
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
