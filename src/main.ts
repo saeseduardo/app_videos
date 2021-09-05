@@ -2,15 +2,20 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import setDefaultUser from './seeder/set-default-user';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const configUser = app.get(ConfigService);
 
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
     }),
   );
+
+  setDefaultUser(configUser);
 
   const config = new DocumentBuilder()
     .setTitle('Cats example')

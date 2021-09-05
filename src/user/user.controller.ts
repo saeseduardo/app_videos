@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { CreateUserDto } from './dto/createUserDTO';
 import { UserService } from './user.service';
 import { ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 
 @ApiTags('Users routes')
 @Controller('user')
@@ -17,6 +18,7 @@ export class UserController {
     };
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async store(@Body() body: CreateUserDto) {
     const data = await this.userService.create(body);

@@ -5,22 +5,23 @@ import {
   BeforeInsert,
   BeforeUpdate,
   Entity,
+  OneToMany,
 } from 'typeorm';
 import { hash } from 'bcryptjs';
+import { Comment } from 'src/comment/entities';
 
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'varchar', length: 255, default: '' })
+  @Column({ type: 'varchar', length: 255 })
   name: string;
 
   @Column({
     name: 'last_name',
     type: 'varchar',
     length: 255,
-    default: '',
   })
   lastName: string;
 
@@ -28,7 +29,6 @@ export class User {
     name: 'user_name',
     type: 'varchar',
     length: 255,
-    default: '',
   })
   userName: string;
 
@@ -40,6 +40,9 @@ export class User {
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
+
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comment: Comment[];
 
   @BeforeInsert()
   @BeforeUpdate()
