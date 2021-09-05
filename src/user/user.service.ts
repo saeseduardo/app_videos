@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/createUserDTO';
@@ -6,7 +10,7 @@ import { User } from './entities/user.entity';
 
 export interface UserFindOne {
   id?: number;
-  username?: string;
+  email?: string;
 }
 
 @Injectable()
@@ -17,6 +21,19 @@ export class UserService {
 
   async getMany() {
     return await this.userRepository.find();
+  }
+
+  async getOne(id: number, userEntity?: User) {
+    const user = await this.userRepository
+      .findOne(id)
+      .then((u) =>
+        !userEntity ? u : !!u && userEntity.id === u.id ? u : null,
+      );
+
+    if (!user)
+      throw new NotFoundException('User does not exists or unauthorized');
+
+    return user;
   }
 
   async create(body: CreateUserDto) {
